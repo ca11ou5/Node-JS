@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
 
+
+//Handlers
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -25,17 +27,17 @@ app.post('/submit', (req, res) => {
     console.log(minV, maxV)
     console.log(ans)
 
-    // if (!minV || !maxV || !attempts || isNaN(minV) || isNaN(maxV) || isNaN(attempts) || attempts < 1 || maxV < minV) {
-    //     return res.status(400).send('Поля должны быть все заполнены числовыми значениями, кол-во попыток не может быть меньше 1, максимальное не должно быть меньше минимального')
-    // }
+    if (!minV || !maxV || !attempts || isNaN(minV) || isNaN(maxV) || isNaN(attempts) || attempts < 1 || maxV < minV) {
+        return res.status(400).send('Поля должны быть все заполнены числовыми значениями, кол-во попыток не может быть меньше 1, максимальное не должно быть меньше минимального')
+    }
 
     res.redirect('/game');
 });
 
 app.get("/game", (req, res) => {
-    // if (!isNaN(attempts) || !ans || !attempts) {
-    //     res.redirect("/")
-    // }
+    if (isNaN(attempts) || !ans || !attempts) {
+        return res.redirect("/")
+    }
 
     res.render('game', {att:attempts, msg:""})
 })
@@ -52,6 +54,8 @@ app.post("/game", (req, res) => {
 
     res.render('game', {att:attempts, msg:msg})
 })
+
+
 
 //HTTP Server
 app.listen(port, () => {
