@@ -46,11 +46,12 @@ app.post("/game", (req, res) => {
     num = req.body.number
     msg = search(num, ans)
 
-    attempts--
+
     if (attempts<1){
         msg = "Вы проиграли =`(("
         ans = 0
     }
+    attempts--
 
     res.render('game', {att:attempts, msg:msg})
 })
