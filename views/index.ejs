@@ -1,0 +1,18 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+</head>
+<body>
+<form action="/submit" method="post">
+    <label for="minvalue">Первое граница диапазона</label>
+    <input type="number" id="minvalue" name="minvalue" required><br><br>
+    <label for="maxvalue">Вторая граница диапазона</label>
+    <input type="number" id="maxvalue" name="maxvalue" required><br><br>
+    <label for="attempts">Кол-во попыток</label>
+    <input type="number" id="attempts" name="attempts" required><br><br>
+    <input type="submit" value="Отправить">
+</form>
+</body>
+</html>

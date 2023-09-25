@@ -1,0 +1,16 @@
+<!-- game.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+</head>
+<body>
+<form action="/game" method="post">
+    <label for="number">Введите число</label>
+    <input type="number" id="number" name="number" required><br><br>
+    <p>Количество попыток <%= att %></p>
+    <input type="submit" value="Отправить">
+    <p><%= msg %></p>
+</form>
+</body>
+</html>
